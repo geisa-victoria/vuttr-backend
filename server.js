@@ -10,16 +10,7 @@ app.use(express.json());
 mongoose.connect('mongodb://127.0.0.1/vuttr', { useNewUrlParser: true });
 
 requireDir('./src/models');
-const Tool = mongoose.model('Tool');
 
-app.use('/api', (req, res) => {
-  Tool.create({
-    title: 'Oii',
-    link: 'github.com/facebook/react-native',
-    description: 'lala',
-    tags: ["organization", "planning"]
-  });
-  return res.send('Helooo');
-});
+app.use('/api', require('./src/routes'));
 
 app.listen(3002);
