@@ -2,35 +2,31 @@ const mongoose = require('mongoose');
 const Tool = mongoose.model('Tool');
 
 module.exports = {
-  // List all Tools
-  async index(req, res) {
+  async showAll(req, res) {
     let { tag } = req.query;
 
     return res.json(await Tool.find(tag? {tags: tag} : undefined));
   },
 
-  // Show one tool data based on id
   async show(req, res) {
     const tools = await Tool.findById(req.params.id);
 
     return res.json(tools);
   },
 
-  // Create one tool record
-  async store(req, res) {
+  async create(req, res) {
     const tools = await Tool.create(req.body);
 
     return res.json(tools);
   },
 
-  // Updates one tool based on an id and request.body
   async update(req, res) {
     const tools = await Tool.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
     return res.json(tools);
   },
-  // Delete tool
-  async destroy(req, res) {
+
+  async remove(req, res) {
     await Tool.findByIdAndRemove(req.params.id);
 
     return res.json({});
