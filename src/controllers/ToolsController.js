@@ -31,12 +31,8 @@ module.exports = {
   },
   // Delete tool
   async destroy(req, res) {
-    const { statusCode } = res;
-    const tools = await Tool.findByIdAndRemove(req.params.id);
+    await Tool.findByIdAndRemove(req.params.id);
 
-    // res.send(statusCode);
-    // res.send(statusCode);
-    // return res.json({});
-    res.sendStatus(200).json(tools);
+    return res.json({});
   }
 }
