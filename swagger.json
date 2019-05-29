@@ -1,0 +1,131 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Very Useful Tools to Remember",
+    "description": "API consumed by server to register and manage tools"
+  },
+  "schemes": [
+    "http"
+  ],
+  "host": "localhost:3002",
+  "basePath": "/api/",
+  "paths": {
+    "/tools": {
+      "get": {
+        "summary": "Gets all tools",
+        "description": "Returns a list containing all tools.",
+        "responses": {
+          "200": {
+            "description": "200 OK"
+          }
+        }
+      },
+      "post": {
+        "summary": "Registers a new tool.",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "tool",
+            "description": "The tool to create.",
+            "schema": {
+              "type": "object",
+              "required": [
+                "title",
+                "description",
+                "link",
+                "tags"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                },
+                "tags": {
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "description": "Returns the recently registered tool with its _id.",
+        "responses": {
+          "200": {
+            "description": "200 OK"
+          }
+        }
+      }
+    },
+    "/tools/{_id}": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "summary": "Edit tool based on its _id.",
+        "description": "Returns the recently updated tool.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tool",
+            "in": "body",
+            "schema": {
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                },
+                "tags": {
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 OK"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete tool based on its _id.",
+        "description": "Returns an empty object.",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 OK"
+          }
+        }
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@ module.exports = {
 
   // Updates one tool based on an id and request.body
   async update(req, res) {
-    const tools = await Tool.findByIdAndUpdate(req.params.id, req.body, { New: true });
+    const tools = await Tool.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
     return res.json(tools);
   },
