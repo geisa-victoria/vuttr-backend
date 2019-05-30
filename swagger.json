@@ -14,6 +14,9 @@
     "/tools": {
       "get": {
         "summary": "Gets all tools",
+        "tags": [
+          "VUTTR"
+        ],
         "description": "Returns a list containing all tools.",
         "responses": {
           "200": {
@@ -26,6 +29,9 @@
       },
       "post": {
         "summary": "Registers a new tool.",
+        "tags": [
+          "VUTTR"
+        ],
         "consumes": [
           "application/json"
         ],
@@ -77,7 +83,10 @@
         "consumes": [
           "application/json"
         ],
-        "summary": "Edits a tool based on its _id.",
+        "summary": "Updates a tool based on its _id.",
+        "tags": [
+          "VUTTR"
+        ],
         "description": "Returns the recently updated tool.",
         "parameters": [
           {
@@ -120,6 +129,9 @@
       },
       "delete": {
         "summary": "Deletes a tool based on its _id.",
+        "tags": [
+          "VUTTR"
+        ],
         "description": "Returns an empty object.",
         "parameters": [
           {
@@ -140,6 +152,9 @@
       },
       "get": {
         "summary": "Gets a tool based on its _id.",
+        "tags": [
+          "VUTTR"
+        ],
         "description": "Returns the tool data.",
         "parameters": [
           {
