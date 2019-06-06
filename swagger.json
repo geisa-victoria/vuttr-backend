@@ -5,36 +5,28 @@
     "title": "Very Useful Tools to Remember",
     "description": "API consumed by server to register and manage tools"
   },
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "host": "localhost:3002",
   "basePath": "/api/",
   "paths": {
     "/tools": {
       "get": {
         "summary": "Gets all tools",
-        "tags": [
-          "VUTTR"
-        ],
+        "tags": ["VUTTR"],
         "description": "Returns a list containing all tools.",
         "responses": {
           "200": {
             "description": "200 OK"
           },
-          "500": {
-            "description": "500 Internal server error"
+          "404": {
+            "description": "404 NOT FOUND"
           }
         }
       },
       "post": {
         "summary": "Registers a new tool.",
-        "tags": [
-          "VUTTR"
-        ],
-        "consumes": [
-          "application/json"
-        ],
+        "tags": ["VUTTR"],
+        "consumes": ["application/json"],
         "parameters": [
           {
             "in": "body",
@@ -42,12 +34,7 @@
             "description": "The tool to create.",
             "schema": {
               "type": "object",
-              "required": [
-                "title",
-                "description",
-                "link",
-                "tags"
-              ],
+              "required": ["title", "description", "link", "tags"],
               "properties": {
                 "title": {
                   "type": "string"
@@ -73,20 +60,16 @@
             "description": "200 OK"
           },
           "500": {
-            "description": "500 Internal server error"
+            "description": "500 INTERNAL SERVER ERROR"
           }
         }
       }
     },
     "/tools/{_id}": {
       "put": {
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "summary": "Updates a tool based on its _id.",
-        "tags": [
-          "VUTTR"
-        ],
+        "tags": ["VUTTR"],
         "description": "Returns the recently updated tool.",
         "parameters": [
           {
@@ -122,16 +105,14 @@
           "200": {
             "description": "200 OK"
           },
-          "500": {
-            "description": "500 Internal server error"
+          "404": {
+            "description": "404 NOT FOUND"
           }
         }
       },
       "delete": {
         "summary": "Deletes a tool based on its _id.",
-        "tags": [
-          "VUTTR"
-        ],
+        "tags": ["VUTTR"],
         "description": "Returns an empty object.",
         "parameters": [
           {
@@ -145,16 +126,14 @@
           "200": {
             "description": "200 OK"
           },
-          "500": {
-            "description": "500 Internal server error"
+          "404": {
+            "description": "404 NOT FOUND"
           }
         }
       },
       "get": {
         "summary": "Gets a tool based on its _id.",
-        "tags": [
-          "VUTTR"
-        ],
+        "tags": ["VUTTR"],
         "description": "Returns the tool data.",
         "parameters": [
           {
@@ -168,8 +147,8 @@
           "200": {
             "description": "200 OK"
           },
-          "500": {
-            "description": "500 Internal server error"
+          "404": {
+            "description": "404 NOT FOUND"
           }
         }
       }
